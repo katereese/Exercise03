@@ -1,42 +1,50 @@
-def calculator(operator, num1, num2):
+import arithmetic
+
+def calculator(operator, *nums):
+    num1, num2 = nums
     if operator == '+':
-        print add(num1, num2)
+        print arithmetic.add(num1, num2)
 
     elif operator == '-':
-        print subtract(num1, num2)
+        print arithmetic.subtract(num1, num2)
 
     elif operator == '*':
-        print multiply(num1, num2)
+        print arithmetic.multiply(num1, num2)
 
     elif operator == '/':
-        print divide(num1, num2)
+        print arithmetic.divide(num1, num2)
 
-    elif operator == 'square' and num2 == 2:
-        print square(num1, num2)
+    elif operator == 'square':
+        print arithmetic.square(num1)
 
-    elif operator == 'cube' and num2 == 3:
-        print cube(num1, num2)
+    elif operator == 'cube':
+        print arithmetic.cube(num1)
 
-    elif operator == 'pow' and num2 != 2 and num2 != 3:
-        print power(num1, num2)
+    elif operator == 'pow':
+        print arithmetic.power(num1, num2)
 
     elif operator == 'mod':
-        print mod(num1, num2)
+        print arithmetic.mod(num1, num2)
 
     else:
         print "Sorry, I don't understand."
 
-def process_and_run():
+def main():
     while True:
         input = raw_input()
         if input == "q":
-            break
+            break    # return 
         else:
             input = input.split(' ')
             operator = input[0]
             num1 = int(input[1])
-            num2 = int(input[2])
+            if operator == 'square' or operator == 'cube':
+                num2 = None
+            else:
+                num2 = int(input[2])
             calculator(operator, num1, num2)
+
         
 
-process_and_run()
+if __name__ == '__main__':
+    main()
