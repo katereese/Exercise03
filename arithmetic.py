@@ -19,8 +19,11 @@ def multiply(*nums):
 def divide(*nums):
     quotient = float(nums[0])
     for i in nums[1:]:
-        quotient = quotient / float(i)
-    return quotient
+        if float(i) == 0:
+            return "Error! You cannot divide by zero!"
+        else:
+            quotient = quotient / float(i)
+            return quotient
 
 def square(*nums):
     num1 = nums
