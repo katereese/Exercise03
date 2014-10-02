@@ -1,33 +1,45 @@
 import arithmetic
 
 def calculator(operator, *nums):
-    num1, num2 = nums
+
     if operator == '+':
-        print arithmetic.add(num1, num2)
+        return arithmetic.add(*nums)
 
     elif operator == '-':
-        print arithmetic.subtract(num1, num2)
+        return arithmetic.subtract(*nums)
 
     elif operator == '*':
-        print arithmetic.multiply(num1, num2)
+        return arithmetic.multiply(*nums)
 
     elif operator == '/':
-        print arithmetic.divide(num1, num2)
+        return arithmetic.divide(*nums)
 
     elif operator == 'square':
-        print arithmetic.square(num1)
+        if len(nums) == 1:
+            return arithmetic.square(*nums)
+        else:
+            return "Input must be one number."
 
     elif operator == 'cube':
-        print arithmetic.cube(num1)
+        if len(nums) == 1:
+            return arithmetic.cube(*nums)
+        else:
+            return "Input must be one number."
 
     elif operator == 'pow':
-        print arithmetic.power(num1, num2)
+        if len(nums) == 2:
+            return arithmetic.power(*nums)
+        else:
+            return "Input must be two numbers."
 
     elif operator == 'mod':
-        print arithmetic.mod(num1, num2)
+        if len(nums) == 2:
+            return arithmetic.mod(*nums)
+        else:
+            return "Input must be two numbers."
 
     else:
-        print "Sorry, I don't understand."
+        return "Sorry, I don't understand."
 
 def main():
     while True:
@@ -37,14 +49,9 @@ def main():
         else:
             input = input.split(' ')
             operator = input[0]
-            num1 = int(input[1])
-            if operator == 'square' or operator == 'cube':
-                num2 = None
-            else:
-                num2 = int(input[2])
-            calculator(operator, num1, num2)
+            nums = input[1:]
+            print calculator(operator, *nums)
 
         
-
 if __name__ == '__main__':
     main()

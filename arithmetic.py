@@ -1,23 +1,39 @@
-def add(num1, num2):
-    return num1 + num2
+def add(*nums):
+    summation = 0
+    for i in nums:
+        summation = summation + int(i)
+    return summation
 
-def subtract(num1, num2):
-    return num1 - num2
+def subtract(*nums):
+    diff = int(nums[0])
+    for i in nums[1:]:
+        diff = diff - int(i)
+    return diff
 
-def multiply(num1, num2):
-    return num1 * num2
+def multiply(*nums):
+    product = 1
+    for i in nums:
+        product = product * int(i)
+    return product
 
-def divide(num1, num2):
-    return float(num1) / float(num2)
+def divide(*nums):
+    quotient = float(nums[0])
+    for i in nums[1:]:
+        quotient = quotient / float(i)
+    return quotient
 
-def square(num1):
-    return num1 ** 2
+def square(*nums):
+    num1 = nums
+    return int(num1) ** 2
 
-def cube(num1):
-    return num1 ** 3
+def cube(*nums):
+    num1 = nums
+    return int(num1) ** 3
 
-def power(num1, num2):
-    return num1 ** num2
+def power(*nums):
+    num1, num2 = nums
+    return int(num1) ** int(num2)
 
-def mod(num1, num2):
-    return num1 % num2
+def mod(*nums):
+    num1, num2 = nums
+    return int(num1) % int(num2)
